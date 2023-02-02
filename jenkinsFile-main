@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+
+    stages {
+    
+        stage('Git') {
+            steps {
+                git branch: 'dev',
+                credentialsId: '12025741-cbeb-43fd-a518-2c008ffb9b1a',
+                url: 'https://github.com/MHbappy/user-management-craft.git'
+            }
+        }
+        
+        stage('Test'){
+            steps{
+                sh './mvnw clean install'
+                sh './mvnw test'
+            }
+        }
+
+
+
+        stage('Docker build and push'){
+            steps{
+                sh 'sh create-package.sh'
+            }
+        }
+
+        stage('Deploy to server'){
+            steps{
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'sfmu-34.213.42.47',
+                transfers: [sshTransfer(cleanRemote: false, excludes: '',
+                execCommand: '''cd back-end
+                sh deployment.sh''',
+                execTimeout: 120000, 
+                flatten: false, 
+                makeEmptyDirs: false, 
+                noDefaultExcludes: false, 
+                patternSeparator: '[, ]+', 
+                remoteDirectory: '', 
+                remoteDirectorySDF: false, 
+                removePrefix: '', 
+                sourceFiles: '')], 
+                usePromotionTimestamp: false, 
+                useWorkspaceInPromotion: false, 
+                verbose: false)])
+            }
+        }
+    }
+}

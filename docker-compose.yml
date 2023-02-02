@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  user-springboot-docker-compose-app-container:
+    image: hasan18/app_version_application
+    container_name: app_version_application
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./application:/tmp/springboot-docker-compose-app
+    networks:
+      - backend
+

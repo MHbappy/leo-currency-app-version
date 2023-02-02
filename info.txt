@@ -1,0 +1,11 @@
+maven wrapper:
+mvn -N io.takari:maven:wrapper
+
+--upload existing project
+    git init
+    git add .
+    git commit -m "first commit"
+    git remote add origin https://github.com/MHbappy/leo-app-version.git
+    git branch -M main
+    git push -u origin main
+
