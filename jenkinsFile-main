@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-    
+
         stage('Git') {
             steps {
                 git branch: 'dev',
@@ -18,8 +18,6 @@ pipeline {
             }
         }
 
-
-
         stage('Docker build and push'){
             steps{
                 sh 'sh create-package.sh'
@@ -28,7 +26,7 @@ pipeline {
 
         stage('Deploy to server'){
             steps{
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'sfmu-34.213.42.47',
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'leo',
                 transfers: [sshTransfer(cleanRemote: false, excludes: '',
                 execCommand: '''cd back-end
                 sh deployment.sh''',

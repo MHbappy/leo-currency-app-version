@@ -5,7 +5,24 @@ mvn -N io.takari:maven:wrapper
     git init
     git add .
     git commit -m "first commit"
-    git remote add origin https://github.com/MHbappy/leo-app-version.git
+    git remote add origin https://github.com/MHbappy/leo-currency-gateway.git
     git branch -M main
     git push -u origin main
+
+    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
+
+
+    https://github.com/MHbappy/leo-currency-gateway.git
+    https://github.com/MHbappy/leo-currency-eureka.git
+    https://github.com/MHbappy/leo-currency-configure.git
+    https://github.com/MHbappy/leo-currency-convert.git
+    https://github.com/MHbappy/leo-currency-app-version.git
+
+
+    sshPublisher(publishers: [sshPublisherDesc(configName: 'bappy', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cd /root', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+
+
+    IP: 65.20.77.22
+    root
+    8Ce-,(8SVB19ucGy
 
